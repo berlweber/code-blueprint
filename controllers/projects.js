@@ -78,4 +78,16 @@ router.get('/:projectId/edit', async (req, res) => {
     }
 });
 
+// update PUT route
+router.put('/:projectId', async (req, res) => {
+    try {
+        const project = await Project.findById(req.params.projectId);
+        await project.updateOne(req.body);
+        res.redirect(`/projects/${req.params.projectId}`);
+    } catch (error) {
+        console.log(error.message);
+        res.redirect('/projects');
+    }
+});
+
 export default router;
