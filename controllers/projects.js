@@ -17,8 +17,11 @@ router.get('/', async (req, res) => {
 });
 
 // GET form for new project route
-router.get('/new', (req, res) => {
-    res.render('projects/new.ejs');
+router.get('/new', async (req, res) => {
+    const allProjects = await Project.find({});
+    res.render('projects/new.ejs', {
+        projects: allProjects,
+    });
 });
 
 // POST route for new project
@@ -36,9 +39,11 @@ router.post('/', async (req, res) => {
 // show GET route
 router.get('/:projectId', async (req, res) => {
     try {
+        const allProjects = await Project.find({});
         const project = await Project.findById(req.params.projectId);
         res.render('projects/show.ejs', {
             project: project,
+            projects: allProjects,
         });
     } catch (error) {
         console.log(error.message);
