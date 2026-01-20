@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Project</title>
+</head>
+<body>
+    <%- include('../partials/_authNavbar.ejs') %>
+    <%- include('../partials/_projectsNavbar.ejs') %>
+    <h1>Edit Project: <%= project.name %></h1>
+    <form action="/projects" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= project.name %>">
+
+        <label for="discription">Discription:</label>
+        <textarea name="discription" 
+        rows="15" 
+        cols="70"
+        id="discription">
+        <%= project.discription %>
+        </textarea>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <a href="/projects/<%= project._id %>"><button>Cancel</button></a>
+</body>
+</html>
