@@ -51,4 +51,9 @@ router.get('/:projectId', async (req, res) => {
     }
 });
 
+// delete project route
+router.delete('/:projectId', async (req, res) => {
+    res.send('hi!')
+});
+
 export default router;
