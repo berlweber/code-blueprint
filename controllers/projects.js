@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 // GET form for new project
 router.get('/new', (req, res) => {
-    res.render('porjects/new.ejs');
+    res.render('projects/new.ejs');
 });
 
 export default router;
