@@ -8,11 +8,12 @@ import morgan from 'morgan';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 
+// middleware
 import isSignedIn from './middleware/is-signed-in.js';
 import passUserToView from './middleware/pass-user-to-view.js';
 
 import authController from './controllers/users.js';
-
+import projectsController from './controllers/projects.js'
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -46,6 +47,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authController);
+app.use('/projects', projectsController);
 
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}!`);
