@@ -14,6 +14,11 @@ router.get('/', async (req, res) => {
         console.log(error.message);
         res.redirect('/');
     }
-})
+});
+
+// GET form for new project
+router.get('/new', (req, res) => {
+    res.render('porjects/new.ejs');
+});
 
 export default router;
