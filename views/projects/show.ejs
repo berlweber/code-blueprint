@@ -10,8 +10,12 @@
     <%- include('../partials/_projectsNavbar.ejs') %>
     <h1>Project: <%= project.name %></h1>
     <h2><%= project.discription %></h2>
+
     <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
         <BUtton type="submit">Delete this project</BUtton>
     </form>
+    <br>
+
+    <a href="/projects/<%= project._id %>/edit"><button>Edit this project</button></a>
 </body>
 </html>
