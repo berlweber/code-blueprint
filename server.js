@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authController);
-app.use('/projects', projectsController);
+app.use('/projects', isSignedIn, projectsController);
 
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}!`);
