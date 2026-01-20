@@ -2,6 +2,6 @@
 <p><a href="/projects/new">Start A New Project!</a></p>
 <ul>
     <% projects.forEach(project => { %>
-        <li><a href="#"><%= project.name %></a></li>
+        <li><a href="<%= project._id %>"><%= project.name %></a></li>
     <% }) %>
 </ul>
