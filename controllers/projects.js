@@ -63,4 +63,19 @@ router.delete('/:projectId', async (req, res) => {
     }
 });
 
+// edit GET form route
+router.get('/:projectId/edit', async (req, res) => {
+    try {
+        const allProjects = await Project.find({});
+        const project = await Project.findById(req.params.projectId);
+        res.render('projects/edit.ejs', {
+            project: project,
+            projects: allProjects,
+        });
+    } catch (error) {
+        console.log(error.message);
+        res.redirect('/projects');
+    }
+});
+
 export default router;
