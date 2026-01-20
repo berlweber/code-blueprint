@@ -6,7 +6,7 @@ const projectSchema = mongoose.Schema({
         required: true,
     },
     discription: {
-        type: text,
+        type: String,
         required: false,
     },
     owner: {
