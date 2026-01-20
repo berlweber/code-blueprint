@@ -26,7 +26,7 @@ router.post('/sign-up', async (req, res) => {
         await User.create(req.body);
         res.redirect('/');
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         res.redirect('/');
     }
 });
@@ -61,7 +61,7 @@ router.post('/sign-in', async (req, res) => {
             res.redirect('/');
         });
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         res.redirect('/');
     }
 });
