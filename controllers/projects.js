@@ -16,16 +16,30 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET form for new project
+// GET form for new project route
 router.get('/new', (req, res) => {
     res.render('projects/new.ejs');
 });
 
+// POST route for new project
 router.post('/', async (req, res) => {
     try {
         req.body.owner = req.session.user._id;
         await Project.create(req.body);
         res.redirect('/projects');
+    } catch (error) {
+        console.log(error.message);
+        res.redirect('/projects');
+    }
+});
+
+// show GET route
+router.get('/:projectId', async (req, res) => {
+    try {
+        const project = await Project.findById(req.params.projectId);
+        res.render('projects/show.ejs', {
+            project: project,
+        });
     } catch (error) {
         console.log(error.message);
         res.redirect('/projects');
