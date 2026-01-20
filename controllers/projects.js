@@ -53,7 +53,14 @@ router.get('/:projectId', async (req, res) => {
 
 // delete project route
 router.delete('/:projectId', async (req, res) => {
-    res.send('hi!')
+    try {
+        const project = await Project.findById(req.params.projectId);
+        await project.deleteOne();
+        res.redirect('/projects');
+    } catch (error) {
+        console.log(error.message);
+        res.redirect('/projects');
+    }
 });
 
 export default router;
