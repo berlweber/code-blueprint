@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Project</title>
+</head>
+<body>
+    <%- include('../partials/_authNavbar.ejs') %>
+    <%- include('../partials/_projectsNavbar.ejs') %>
+    <%- include('../partials/_docsNavbar.ejs') %>
+    <h1>Create a New Project!</h1>
+    <form action="/documets" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="type">Choose a Type</label>
+        <select name="type" id="type">
+            <option value="user-stories">User Stories</option>
+            <option value="models">Models</option>
+            <option value="views">Views</option>
+            <option value="routes">Routes</option>
+            <option value="pseudocode">Pseudocode</option>
+        </select>
+
+        <label for="content">Content:</label>
+        <textarea name="content" 
+        rows="15" 
+        cols="70"
+        id="content">
+        </textarea>
+
+        <input type="checkbox" name="done" id="done">
+        <label for="done">Done!</label><br>
+
+        <!-- if time, add input for parentDoc here -->
+        
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <a href="/projects/"><button>Cancel</button></a>
+</body>
+</html>
