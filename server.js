@@ -11,6 +11,7 @@ import MongoStore from 'connect-mongo';
 // middleware
 import isSignedIn from './middleware/is-signed-in.js';
 import passUserToView from './middleware/pass-user-to-view.js';
+import Project from './models/project.js';
 
 import authController from './controllers/users.js';
 import projectsController from './controllers/projects.js'
@@ -42,8 +43,17 @@ app.use(
 app.use(passUserToView);
 
 // routes
-app.get('/', (req, res) => {
-    res.render('index.ejs');
+app.get('/', async (req, res) => {
+    try {
+        const allProjects = await Project.find({ owner: req.session.user._id });
+        // console.log(allProjects)
+        res.render('index.ejs', {
+            projects: allProjects,
+        });
+    } catch (error) {
+        console.log(error.message);
+        res.render('index.ejs');
+    }
 });
 
 app.use('/auth', authController);

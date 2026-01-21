@@ -1,7 +1,11 @@
 <h3>My Projects</h3>
+<% if (user) {%>
 <p><a href="/projects/new">Start A New Project!</a></p>
 <ul>
     <% projects.forEach(project => { %>
         <li><a href="/projects/<%= project._id %>"><%= project.name %></a></li>
     <% }) %>
 </ul>
+<% } else { %>
+    <p>Your Porject appear here after sign-in</p>
+<% } %>
