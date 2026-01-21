@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const documentSchema = mongoose.Schema({
     name: {
         type: String,
-        required: false,
+        required: true,
     },
     type: {
         type: String,
