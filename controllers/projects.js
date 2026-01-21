@@ -6,7 +6,7 @@ import Project from '../models/project.js';
 // GET index projects
 router.get('/', async (req, res) => {
     try {
-        const allProjects = await Project.find({});
+        const allProjects = await Project.find({ owner: req.session.user._id });
         res.render('projects/index.ejs', {
             projects: allProjects,
         });
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 // GET form for new project route
 router.get('/new', async (req, res) => {
-    const allProjects = await Project.find({});
+    const allProjects = await Project.find({ owner: req.session.user._id });
     res.render('projects/new.ejs', {
         projects: allProjects,
     });
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
 // show GET route
 router.get('/:projectId', async (req, res) => {
     try {
-        const allProjects = await Project.find({});
+        const allProjects = await Project.find({ owner: req.session.user._id });
         const project = await Project.findById(req.params.projectId);
         res.render('projects/show.ejs', {
             project: project,
@@ -54,6 +54,7 @@ router.get('/:projectId', async (req, res) => {
 // delete project route
 router.delete('/:projectId', async (req, res) => {
     try {
+        
         const project = await Project.findById(req.params.projectId);
         await project.deleteOne();
         res.redirect('/projects');
@@ -66,7 +67,7 @@ router.delete('/:projectId', async (req, res) => {
 // edit GET form route
 router.get('/:projectId/edit', async (req, res) => {
     try {
-        const allProjects = await Project.find({});
+        const allProjects = await Project.find({ owner: req.session.user._id });
         const project = await Project.findById(req.params.projectId);
         res.render('projects/edit.ejs', {
             project: project,
