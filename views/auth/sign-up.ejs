@@ -6,7 +6,10 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <h1>Create a new account!</h1>
+  <%- include('../partials/_authNavbar.ejs') %>
+  <%- include('../partials/_projectsNavbar.ejs') %>
+  <%- include('../partials/_docsNavbar.ejs') %>
+  <h1>Create a new account!</h1>
   <form action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
