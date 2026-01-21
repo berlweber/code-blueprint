@@ -12,7 +12,7 @@
     <h1>Edit Project: <%= project.name %></h1>
     <form action="/projects/<%= project._id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="<%= project.name %>">
+        <input type="text" name="name" id="name" value="<%= project.name %>" required>
 
         <label for="discription">Discription:</label>
         <textarea name="discription" 
