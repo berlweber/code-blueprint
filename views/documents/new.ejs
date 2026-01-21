@@ -12,10 +12,10 @@
     <h1>Create a New Document!</h1>
     <form action="/documents/<%= thisProject %>" method="POST">
         <label for="name">Name (optional):</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
 
         <label for="type">Choose a Type</label>
-        <select name="type" id="type">
+        <select name="type" id="type" required>
             <option value="user-stories">User Stories</option>
             <option value="models">Models</option>
             <option value="views">Views</option>
@@ -27,7 +27,7 @@
         <textarea name="content" 
         rows="15" 
         cols="70"
-        id="content">
+        id="content" required>
         </textarea>
 
         <input type="checkbox" name="done" id="done">
