@@ -2,6 +2,8 @@ import express from 'express';
 const router = express.Router();
 
 import Project from '../models/project.js';
+import Document from '../models/document.js';
+
 
 // GET index projects
 router.get('/', async (req, res) => {
@@ -41,11 +43,13 @@ router.post('/', async (req, res) => {
 router.get('/:projectId', async (req, res) => {
     try {
         const allProjects = await Project.find({ owner: req.session.user._id });
+        const alldocs = await Document.find({ project: req.params.projectId });
         const project = await Project.findById(req.params.projectId);
         if (project.owner.equals(req.session.user._id)) {
             res.render('projects/show.ejs', {
             project: project,
             projects: allProjects,
+            docs: alldocs,
             });
         } else {
         res.send('You do not have the permission to view this project');
