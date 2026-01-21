@@ -8,6 +8,7 @@
 <body>
     <%- include('../partials/_authNavbar.ejs') %>
     <%- include('../partials/_projectsNavbar.ejs') %>
+    <%- include('../partials/_docsNavbar.ejs') %>
     <h1>Edit Project: <%= project.name %></h1>
     <form action="/projects/<%= project._id %>?_method=PUT" method="POST">
         <label for="name">Name:</label>
