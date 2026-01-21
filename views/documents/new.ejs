@@ -11,7 +11,7 @@
     <%- include('../partials/_docsNavbar.ejs') %>
     <h1>Create a New Document!</h1>
     <form action="/documents/<%= thisProject %>" method="POST">
-        <label for="name">Name (optional):</label>
+        <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
 
         <label for="type">Choose a Type</label>
