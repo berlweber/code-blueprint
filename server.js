@@ -13,8 +13,10 @@ import isSignedIn from './middleware/is-signed-in.js';
 import passUserToView from './middleware/pass-user-to-view.js';
 import Project from './models/project.js';
 
+// controllers
 import authController from './controllers/users.js';
-import projectsController from './controllers/projects.js'
+import projectsController from './controllers/projects.js';
+import documentsController from './controllers/documents.js';
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -58,6 +60,7 @@ app.get('/', async (req, res) => {
 
 app.use('/auth', authController);
 app.use('/projects', isSignedIn, projectsController);
+app.use('/documents', isSignedIn, documentsController);
 
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}!`);
