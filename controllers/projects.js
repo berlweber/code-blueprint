@@ -7,6 +7,7 @@ import Project from '../models/project.js';
 router.get('/', async (req, res) => {
     try {
         const allProjects = await Project.find({ owner: req.session.user._id });
+        // console.log(allProjects)
         res.render('projects/index.ejs', {
             projects: allProjects,
         });
@@ -41,10 +42,14 @@ router.get('/:projectId', async (req, res) => {
     try {
         const allProjects = await Project.find({ owner: req.session.user._id });
         const project = await Project.findById(req.params.projectId);
-        res.render('projects/show.ejs', {
+        if (project.owner.equals(req.session.user._id)) {
+            res.render('projects/show.ejs', {
             project: project,
             projects: allProjects,
-        });
+            });
+        } else {
+        res.send('You do not have the permission to view this project');
+        }
     } catch (error) {
         console.log(error.message);
         res.redirect('/projects');
@@ -54,10 +59,14 @@ router.get('/:projectId', async (req, res) => {
 // delete project route
 router.delete('/:projectId', async (req, res) => {
     try {
-        
         const project = await Project.findById(req.params.projectId);
-        await project.deleteOne();
-        res.redirect('/projects');
+        if (project.owner.equals(req.session.user._id)) {
+            console.log('permission granted')
+            await project.deleteOne();
+            res.redirect('/projects');
+        } else {
+        res.send('You do not have the permission to delete this project');
+        }
     } catch (error) {
         console.log(error.message);
         res.redirect('/projects');
