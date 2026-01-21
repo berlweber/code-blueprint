@@ -10,14 +10,70 @@
     <%- include('../partials/_projectsNavbar.ejs') %>
     <h1>Project: <%= project.name %></h1>
     <h2><%= project.discription %></h2>
-    <%- include('../partials/_docsNavbar.ejs') %>
-    
     <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete this project</button>
     </form>
     <br>
 
     <a href="/projects/<%= project._id %>/edit"><button>Edit this project</button></a>
+    
+    <%- include('../partials/_docsNavbar.ejs') %>
+
+    <% if (docs.some((docEl) => docEl.type === 'user-stories' )) {%>
+        <h2>User Stories</h2>
+        <% docs.forEach((docEl) => { %>
+            <% if (docEl.type === 'user-stories') {%>
+            <h3><%= docEl.name %></h3>
+            <p><%= docEl.content %></p>
+            <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                <% } %>
+            <% }) %>
+    <% } %>
+
+    <% if (docs.some((docEl) => docEl.type === 'models' )) {%>
+        <h2>Models</h2>
+        <% docs.forEach((docEl) => { %>
+            <% if (docEl.type === 'models') {%>
+            <h3><%= docEl.name %></h3>
+            <p><%= docEl.content %></p>
+            <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                <% } %>
+            <% }) %>
+    <% } %>
+
+    <% if (docs.some((docEl) => docEl.type === 'views' )) {%>
+        <h2>Views</h2>
+        <% docs.forEach((docEl) => { %>
+            <% if (docEl.type === 'views') {%>
+            <h3><%= docEl.name %></h3>
+            <p><%= docEl.content %></p>
+            <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                <% } %>
+            <% }) %>
+    <% } %>
+
+    <% if (docs.some((docEl) => docEl.type === 'routes' )) {%>
+        <h2>Routes</h2>
+        <% docs.forEach((docEl) => { %>
+            <% if (docEl.type === 'routes') {%>
+            <h3><%= docEl.name %></h3>
+            <p><%= docEl.content %></p>
+            <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                <% } %>
+            <% }) %>
+    <% } %>
+
+    <% if (docs.some((docEl) => docEl.type === 'pseudocode' )) {%>
+        <h2>Pseudocode</h2>
+        <% docs.forEach((docEl) => { %>
+            <% if (docEl.type === 'pseudocode') {%>
+            <h3><%= docEl.name %></h3>
+            <p><%= docEl.content %></p>
+            <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                <% } %>
+            <% }) %>
+    <% } %>
+    
 
     
 </body>
