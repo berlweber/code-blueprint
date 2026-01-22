@@ -1,8 +1,11 @@
-<nav>
-    <h3>Project Related Documents</h3>
-    <a href="#?type=user-stories"><button>User Stories</button></a>
-    <a href="#?type=models"><button>Models and ERDs</button></a>
-    <a href="#?type=views"><button>Views and Wireframes</button></a>
-    <a href="#?type=routes"><button>Routes</button></a>
-    <a href="#?type=pseudocode"><button>Pseudocode</button></a>
+<h2>Project Related Documents</h2>
+<nav class="doctab">
+    <button class="tablinks" onclick="openDoc(event, 'London')">User Stories</button>
+    <button class="tablinks" onclick="openDoc(event, 'Models and ERDs')">Models and ERDs</button>
+    <button class="tablinks" onclick="openDoc(event, 'Views and Wireframes')">Views and Wireframes</button>
+    <button class="tablinks" onclick="openDoc(event, 'Routes')">Routes</button>
+    <button class="tablinks" onclick="openDoc(event, 'Pseudocode')">Pseudocode</button>
+    <% if (typeof project !== 'undefined') {%>
+    <a href="/documents/<%= project._id %>/new"><button class="newdoc" >Add New Document</button></a>
+    <% } %>
 </nav>

@@ -1,11 +1,11 @@
 <!-- partials/_navbar.ejs -->
 <nav>
-  <a href="/">Home</a>
   <% if (user) { %>
   <!-- <a href="/listings">View all Listings</a> -->
-  <a href="/auth/sign-out">Sign Out</a>
+  <a href="/auth/sign-out"><button>Sign Out</button> </a>
   <% } else { %>
-  <a href="/auth/sign-up">Sign Up</a>
-  <a href="/auth/sign-in">Sign In</a>
+  <a href="/auth/sign-up"><button>Sign Up</button></a>
+  <a href="/auth/sign-in"><button>Sign In</button></a>
   <% } %>
+  <a href="/"><button>Home</button></a>
 </nav>

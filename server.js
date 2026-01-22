@@ -7,6 +7,16 @@ import methodOverride from 'method-override';
 import morgan from 'morgan';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
+// Source - https://stackoverflow.com/a/64383997
+// Posted by adlopez15
+// Retrieved 2026-01-22, License - CC BY-SA 4.0
+import path from 'path'
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
+
+// const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.resolve();;
+
 
 // middleware
 import isSignedIn from './middleware/is-signed-in.js';
@@ -41,6 +51,8 @@ app.use(
         }),
     }) //need to check why the above causes an error if its 2 times .MongoStore, and if it works now when its only 1 time
 );
+// middleware for stylesheets
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(passUserToView);
 

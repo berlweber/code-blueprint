@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-    <%- include('../partials/_authNavbar.ejs') %>
-    <%- include('../partials/_projectsNavbar.ejs') %>
-    <%- include('../partials/_docsNavbar.ejs') %>
+    <nav id="auth"><%- include('../partials/_authNavbar.ejs') %></nav>
+    <nav id="projectsnav"><%- include('../partials/_projectsNavbar.ejs') %></nav>
+     <header>
+        <h1>Welcome to CodeBlueprint</h1>
+        <h2>Personal Project Planning for developers</h2>
+        <nav id="docsnav"><%- include('../partials/_docsNavbar.ejs') %></nav>
+
+    </header>
 </body>
 </html>

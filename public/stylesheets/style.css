@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 40px auto;
+}
+
+#auth {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: red solid 1px; */
+
+}
+
+#auth button {
+    padding: 10px 24px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+#projectsnav {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+header {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+#docsnav {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.doctab {
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.doctab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.doctab button:hover {
+  background-color: #ddd;
+}
+
+.doctab button.active {
+  background-color: #ccc;
+}
+
+.tablink {
+
+}
+
+.newdoc {
+    position: fixed;
+}
