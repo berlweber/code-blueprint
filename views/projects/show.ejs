@@ -5,94 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= project.name %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script>
+        function openDoc(evt, docName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="docContent" and hide them
+            docContent = document.getElementsByClassName("docContent");
+            for (i = 0; i < docContent.length; i++) {
+                docContent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(docName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+        openDoc();
+    </script>
 </head>
 <body>
-    <nav id="auth"><%- include('../partials/_authNavbar.ejs') %></nav>
-    <nav id="projectsnav"><%- include('../partials/_projectsNavbar.ejs') %></nav>
-     <header>
+    <%- include('../partials/_authNavbar.ejs') %>
+    <%- include('../partials/_projectsNavbar.ejs') %>
+     <main>
         <h1>Project: <%= project.name %></h1>
         <h2><%= project.discription %></h2>
-        <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete this project</button>
-        </form>
-         <a href="/projects/<%= project._id %>/edit"><button>Edit this project</button></a>
+        <div class="project-buttons">
+            <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete this project</button>
+            </form>
+            <a href="/projects/<%= project._id %>/edit"><button>Edit this project</button></a>
+        </div>
+        
         <nav id="docsnav"><%- include('../partials/_docsNavbar.ejs') %></nav>
 
-    </header>
-    <% if (docs.some((docEl) => docEl.type === 'user-stories' )) {%>
-        <h2>User Stories</h2>
-        <% docs.forEach((docEl) => { %>
-            <% if (docEl.type === 'user-stories') {%>
-            <h3><%= docEl.name %></h3>
-            <p><%= docEl.content %></p>
-            <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
-                <% } %>
-            <% }) %>
-    <% } else { %>
-        <p>You have still not created any User Stories for <%= project.name %></p>
-        <% } %>
+    
 
-    <% if (docs.some((docEl) => docEl.type === 'models' )) {%>
-        <h2>Models</h2>
-        <% docs.forEach((docEl) => { %>
-            <% if (docEl.type === 'models') {%>
-                <details>
-                    <summary><h3><%= docEl.name %></h3></summary>
-                    <p><%= docEl.content %></p>
-                    <p><b>Status:</b> <%= docEl.done ? 'Done!' : 'ToDo' %></p>
-                </details>
-                <% } %>
-            <% }) %>
-    <% } else { %>
-        <p>You have still not created any Models for <%= project.name %></p>
-        <% } %>
-
-    <% if (docs.some((docEl) => docEl.type === 'views' )) {%>
-        <h2>Views</h2>
-        <% docs.forEach((docEl) => { %>
-            <% if (docEl.type === 'views') {%>
-            <details>
-                <summary><h3><%= docEl.name %></h3></summary>
-                <p><%= docEl.content %></p>
-            <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
-            </details>
-                <% } %>
-            <% }) %>
-    <% } else { %>
-        <p>You have still not created any Views for <%= project.name %></p>
-        <% } %>
-
-    <% if (docs.some((docEl) => docEl.type === 'routes' )) {%>
-        <h2>Routes</h2>
-        <% docs.forEach((docEl) => { %>
-            <% if (docEl.type === 'routes') {%>
+        <div id="user-stories" class="docContent">
+        <% if (docs.some((docEl) => docEl.type === 'user-stories' )) {%>
+            
+            <% docs.forEach((docEl) => { %>
+                <% if (docEl.type === 'user-stories') {%>
                 <details>
                     <summary><h3><%= docEl.name %></h3></summary>
                     <p><%= docEl.content %></p>
                     <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
                 </details>
-                <% } %>
-            <% }) %>
-    <% } else { %>
-        <p>You have still not created any Routes for <%= project.name %></p>
-        <% } %>
-
-    <% if (docs.some((docEl) => docEl.type === 'pseudocode' )) {%>
-        <h2>Pseudocode</h2>
-        <% docs.forEach((docEl) => { %>
-            <% if (docEl.type === 'pseudocode') {%>
+                    <% } %>
+                <% }) %>
+        <% } else { %>
+            <p>You have still not created any User Stories for <%= project.name %></p>
+            <% } %>
+        
+        </div>
+        <div id="Models" class="docContent">
+        <% if (docs.some((docEl) => docEl.type === 'models' )) {%>
+            
+            <% docs.forEach((docEl) => { %>
+                <% if (docEl.type === 'models') {%>
+                    <details>
+                        <summary><h3><%= docEl.name %></h3></summary>
+                        <p><%= docEl.content %></p>
+                        <p><b>Status:</b> <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                    </details>
+                    <% } %>
+                <% }) %>
+        <% } else { %>
+            <p>You have still not created any Models for <%= project.name %></p>
+            <% } %>
+        </div>
+        <div id="Views" class="docContent">
+        <% if (docs.some((docEl) => docEl.type === 'views' )) {%>
+            
+            <% docs.forEach((docEl) => { %>
+                <% if (docEl.type === 'views') {%>
                 <details>
                     <summary><h3><%= docEl.name %></h3></summary>
                     <p><%= docEl.content %></p>
-                    <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
                 </details>
-                <% } %>
-            <% }) %>
-    <% } else { %>
-        <p>You have still not created any Pseudocode for <%= project.name %></p>
-        <% } %>
-    
-
-    
+                    <% } %>
+                <% }) %>
+        <% } else { %>
+            <p>You have still not created any Views for <%= project.name %></p>
+            <% } %>
+        </div>
+        <div id="Routes" class="docContent">
+        <% if (docs.some((docEl) => docEl.type === 'routes' )) {%>
+            
+            <% docs.forEach((docEl) => { %>
+                <% if (docEl.type === 'routes') {%>
+                    <details>
+                        <summary><h3><%= docEl.name %></h3></summary>
+                        <p><%= docEl.content %></p>
+                        <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                    </details>
+                    <% } %>
+                <% }) %>
+        <% } else { %>
+            <p>You have still not created any Routes for <%= project.name %></p>
+            <% } %>
+        </div>    
+        <div id="Pseudocode" class="docContent">
+        <% if (docs.some((docEl) => docEl.type === 'pseudocode' )) {%>
+            
+            <% docs.forEach((docEl) => { %>
+                <% if (docEl.type === 'pseudocode') {%>
+                    <details>
+                        <summary><h3><%= docEl.name %></h3></summary>
+                        <p><%= docEl.content %></p>
+                        <p>Status: <%= docEl.done ? 'Done!' : 'ToDo' %></p>
+                    </details>
+                    <% } %>
+                <% }) %>
+        <% } else { %>
+            <p>You have still not created any Pseudocode for <%= project.name %></p>
+            <% } %>
+        </div>
+    </main>
 </body>
 </html>

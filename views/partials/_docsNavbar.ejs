@@ -1,11 +1,19 @@
-<h2>Project Related Documents</h2>
-<nav class="doctab">
-    <button class="tablinks" onclick="openDoc(event, 'London')">User Stories</button>
-    <button class="tablinks" onclick="openDoc(event, 'Models and ERDs')">Models and ERDs</button>
-    <button class="tablinks" onclick="openDoc(event, 'Views and Wireframes')">Views and Wireframes</button>
-    <button class="tablinks" onclick="openDoc(event, 'Routes')">Routes</button>
-    <button class="tablinks" onclick="openDoc(event, 'Pseudocode')">Pseudocode</button>
-    <% if (typeof project !== 'undefined') {%>
-    <a href="/documents/<%= project._id %>/new"><button class="newdoc" >Add New Document</button></a>
-    <% } %>
-</nav>
+<div id="docsnav">
+    <header>
+        <% if (typeof project === 'undefined') {%>
+        <h1>Welcome to CodeBlueprint</h1>
+        <h2>Personal Project Planning for developers</h2>
+        <% } %>
+        <h2>Project Related Documents</h2>
+        <nav class="doctab">
+            <button class="tablinks" onclick="openDoc(event, 'user-stories')">User Stories</button>
+            <button class="tablinks" onclick="openDoc(event, 'Models')">Models and ERDs</button>
+            <button class="tablinks" onclick="openDoc(event, 'Views')">Views and Wireframes</button>
+            <button class="tablinks" onclick="openDoc(event, 'Routes')">Routes</button>
+            <button class="tablinks" onclick="openDoc(event, 'Pseudocode')">Pseudocode</button>
+            <% if (typeof project !== 'undefined') {%>
+            <a href="/documents/<%= project._id %>/new"><button class="newdoc" >Add New Document</button></a>
+            <% } %>
+        </nav>
+    </header>
+</div>

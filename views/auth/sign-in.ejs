@@ -9,16 +9,17 @@
 <body>
     <%- include('../partials/_authNavbar.ejs') %>
     <%- include('../partials/_projectsNavbar.ejs') %>
-    <h1>Welcome to CodeBlueprint</h1>
-    <h2>Personal Project Planning for developers</h2>
-    <%- include('../partials/_docsNavbar.ejs') %>
-    <h1>Sign in</h1>
-    <form action="/auth/sign-in" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required />
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required />
-        <button type="submit">Sign in</button>
-    </form>
+    <main>
+        <%- include('../partials/_docsNavbar.ejs') %>
+    
+        <h1>Sign in</h1>
+        <form action="/auth/sign-in" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required />
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required />
+            <button type="submit">Sign in</button>
+        </form>
+    </main>
 </body>
 </html>

@@ -10,9 +10,11 @@ import Project from '../models/project.js';
 // create GET route
 router.get('/:projectId/new', async (req, res) => {
     const allProjects = await Project.find({ owner: req.session.user._id });
+    const project = await Project.findById(req.params.projectId);
     res.render('documents/new.ejs', {
         projects: allProjects,
         thisProject: req.params.projectId,
+        project: project,
     });
 });
 
