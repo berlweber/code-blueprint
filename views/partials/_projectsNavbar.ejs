@@ -1,10 +1,10 @@
 <div id="projectsnav">
     <h3>My Projects</h3>
     <% if (user) {%>
-    <a href="/projects/new" id="newproj">Start A New Project</a>
+    <a href="/projects/new" id="newproj" class="btn">Start A New Project</a>
     
         <% projects.forEach(project => { %>
-            <a href="/projects/<%= project._id %>"><button><%= project.name %></button> </a>
+            <a href="/projects/<%= project._id %>" class="btn"><%= project.name %> </a>
         <% }) %>
     
     <% } else { %>

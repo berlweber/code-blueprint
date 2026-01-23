@@ -27,16 +27,15 @@ router.post('/:projectId', async (req, res) => {
             req.body.project = project._id;
             // if (req.body.parentDoc) >>> asign parentDoc id
             if (req.body.done) req.body.done = true;
-            console.log(req.body);
             await Document.create(req.body);
-            res.redirect('/projects');//change this one with the following after availibe
-            // res.redirect(`projects/:${project._id}`);
+            // res.redirect('/projects');//change this one with the following after availibe
+            res.redirect(`/projects/${req.params.projectId}`);
         } else {
         res.send('You do not have the permission to add documents to this project');
         }
     } catch (error) {
         console.log(error.message);
-        res.redirect(`projects/:${req.params.projectId}`);
+        res.redirect(`/projects/:${req.params.projectId}`);
     }
 });
 

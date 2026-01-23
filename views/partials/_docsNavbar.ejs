@@ -11,9 +11,6 @@
             <button class="tablinks" onclick="openDoc(event, 'Views')">Views and Wireframes</button>
             <button class="tablinks" onclick="openDoc(event, 'Routes')">Routes</button>
             <button class="tablinks" onclick="openDoc(event, 'Pseudocode')">Pseudocode</button>
-            <% if (typeof project !== 'undefined') {%>
-            <a href="/documents/<%= project._id %>/new"><button class="newdoc" >Add New Document</button></a>
-            <% } %>
         </nav>
     </header>
 </div>

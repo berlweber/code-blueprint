@@ -46,7 +46,7 @@ body {
     grid-row: 1 / 3;
     height: 100%;
     width: 100%;
-    border-right: solid black 3px;
+    border-right: solid rgb(151, 146, 146) 2px;
     background-color: #E7E9EB;
 }
 
@@ -55,18 +55,21 @@ body {
     font-size: 28px;
 }
 
-#projectsnav button {
+#projectsnav .btn {
     width: 100%;
     padding: 10px 24px;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
     border: none;
+    display: block;
+    border-radius: 0;
 }
 
-#newproj {
+#projectsnav #newproj {
   display: inline-block;
   margin-bottom: 30px;
+  margin-right: 15px;
   padding: 10px 24px;
   text-decoration: none;
   text-align: center;
@@ -74,6 +77,7 @@ body {
   color: black;
   border: black solid 1px;
   border-radius: 5px;
+  width: 98%;
 }
 
 /* header {
@@ -84,6 +88,7 @@ body {
 main {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    position: relative;
 }
 
 #docsnav {
@@ -94,7 +99,7 @@ main {
 .doctab {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-start;
+    /* justify-content: stretch; */
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
@@ -108,14 +113,26 @@ main {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  width: 200px;
+  border-radius: 0;
 }
 
-.doctab button:hover {
-  background-color: #ddd;
+button:hover, .btn:hover {
+  background-color: #b0adb3fd;
 }
 
-.doctab button.active {
-  background-color: #ccc;
+button.active {
+  background-color: #acabb1;
+}
+
+#newdoc{
+    position: relative;
+}
+
+.newdoc{
+ position: absolute;
+ right: 10px;
+ top: 20px;
 }
 
 .docContent {
@@ -125,6 +142,11 @@ main {
 .form {
     width: 50%;
     margin: auto;
+}
+
+input[type=password] {
+    margin: 10px 2px 10px 2px;
+    border-radius: 5px;
 }
 
 input[type=text] {
@@ -201,6 +223,36 @@ button {
     margin: auto;
 }
 
+details {
+    width: 60%;
+    margin: 10px auto;
+    border: solid rgb(151, 146, 146) 1px;
+}
+
 summary {
     display: block;
+    
+    
 }
+
+summary h3 {
+    font-weight: 300;
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+.altdoc {
+    margin-top: 150px;
+}
+
+form .form {
+   font-family: "DM Sans", sans-serif;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   background-color: #bcbebe;
+   padding: 20px 30px;
+   border-radius: 20px;
+   margin: 20px 10px;
+ }

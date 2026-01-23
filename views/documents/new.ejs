@@ -19,7 +19,7 @@
             <a href="/projects/<%= project._id %>/edit"><button>Edit this project</button></a>
          </div>
         <%- include('../partials/_docsNavbar.ejs') %>
-        <h1>Create a New Document!</h1>
+        <h2>Create a New Document</h2>
         <div class="form">
             <form id="newDoc" action="/documents/<%= thisProject %>" method="POST">
                 <label for="name">Name:</label>
