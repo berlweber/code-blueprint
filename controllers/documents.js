@@ -3,10 +3,6 @@ const router = express.Router();
 import Document from '../models/document.js';
 import Project from '../models/project.js';
 
-// router.get('/', (req, res) => {
-//     res.send('works!!!!!!!!!!!!!!!!!');
-// });
-
 // create GET route
 router.get('/:projectId/new', async (req, res) => {
     const allProjects = await Project.find({ owner: req.session.user._id });
@@ -25,10 +21,8 @@ router.post('/:projectId', async (req, res) => {
         if (project.owner.equals(req.session.user._id) ) {
             req.body.owner = req.session.user._id;
             req.body.project = project._id;
-            // if (req.body.parentDoc) >>> asign parentDoc id
             if (req.body.done) req.body.done = true;
             await Document.create(req.body);
-            // res.redirect('/projects');//change this one with the following after availibe
             res.redirect(`/projects/${req.params.projectId}`);
         } else {
         res.send('You do not have the permission to add documents to this project');

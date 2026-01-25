@@ -23,7 +23,6 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* border: red solid 1px; */
 }
 
 #auth .btn {
@@ -80,11 +79,6 @@ body {
   width: 98%;
 }
 
-/* header {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-} */
-
 main {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -99,7 +93,6 @@ main {
 .doctab {
     margin-top: 20px;
     display: flex;
-    /* justify-content: stretch; */
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
@@ -203,7 +196,6 @@ button {
     color: black;
     border: black solid 1px;
     border-radius: 5px;
-    /* margin-top: 10px; */
     font-size: 16px;
 }
 

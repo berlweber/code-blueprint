@@ -1,15 +1,12 @@
 import express from 'express';
 const router = express.Router();
-
 import Project from '../models/project.js';
 import Document from '../models/document.js';
-
 
 // GET index projects
 router.get('/', async (req, res) => {
     try {
         const allProjects = await Project.find({ owner: req.session.user._id });
-        // console.log(allProjects)
         res.render('projects/index.ejs', {
             projects: allProjects,
         });
