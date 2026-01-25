@@ -1,6 +1,6 @@
 # code-blueprint
 
-CodeBlueprint is a personal project planning application that helps developers organize user stories, ERDs, routes, and pseudocode for their software projects.
+CodeBlueprint is a personal project planning application that helps developers organize user stories, ERDs, routes, and pseudocode for their software projects, all in one place.
 
 ![screenshot of a preview of the app](./Code-Blueprint-preview.png?raw=true "")
 
@@ -8,7 +8,7 @@ CodeBlueprint is a personal project planning application that helps developers o
 
 [Click here to visit the deployed game!](https://berlweber.github.io/Snake-game/)
 
-[Click here to see my plannig materials](https://berlweber.github.io/Snake-game/)
+[Click here to see my plannig materials](https://trello.com/b/0MQzPuR3/men-stack-crud-app-project-codeblueprint-project-manager)
 
 ## Technologies used:
 
