@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            function openDoc(evt, docName) {
+            window.openDoc = function (evt, docName) {
                 // Declare all variables
                 let i, tabcontent, tablinks;
 
@@ -51,7 +51,7 @@
             <% } %>
         </div>
 
-        <div id="user-stories" class="docContent">
+        <div id="User-stories" class="docContent">
         <% if (docs.some((docEl) => docEl.type === 'user-stories' )) {%>
             
             <% docs.forEach((docEl) => { %>
