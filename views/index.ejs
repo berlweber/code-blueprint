@@ -11,6 +11,23 @@
     <%- include('./partials/_projectsNavbar.ejs') %>
     <main>
         <%- include('./partials/_docsNavbar.ejs') %>
+        <section class="intro">
+            <h2>Plan software projects without mixing in personal or financial data.</h2>
+            <p>
+                CodeBlueprint is a student-built project planning app for organizing user stories,
+                data models, wireframes, routes, and pseudocode in one private workspace.
+            </p>
+            <% if (!user) { %>
+            <div class="intro-actions">
+                <a href="/auth/sign-up" class="btn">Create a CodeBlueprint account</a>
+                <a href="/auth/sign-in" class="btn">Sign in</a>
+            </div>
+            <p class="security-note">
+                This app only asks for a username and password for your CodeBlueprint account.
+                Do not enter financial information, payment details, or passwords from other services.
+            </p>
+            <% } %>
+        </section>
     </main>
 </body>
 </html>

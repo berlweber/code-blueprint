@@ -83,6 +83,7 @@ main {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     position: relative;
+    padding: 0 24px 32px;
 }
 
 #docsnav {
@@ -135,6 +136,33 @@ button.active {
 .form {
     width: 50%;
     margin: auto;
+}
+
+.intro {
+    width: min(760px, 100%);
+    margin: 48px auto 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.intro h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.intro-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 24px 0 12px;
+}
+
+.security-note {
+    width: min(680px, 100%);
+    margin: 12px auto 24px;
+    color: #3f454a;
+    line-height: 1.45;
 }
 
 input[type=password] {

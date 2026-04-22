@@ -8,20 +8,25 @@
 </head>
 <body>
   <%- include('../partials/_authNavbar.ejs') %>
-  <%- include('../partials/_projectsNavbar.ejs') %>
+    <%- include('../partials/_projectsNavbar.ejs') %>
   <main>
     <%- include('../partials/_docsNavbar.ejs') %>
-    <h3>Create a new account!</h3>
+    <h1>Create a CodeBlueprint account</h1>
+    <p class="security-note">
+      Choose a unique password for this project planning app. Do not enter passwords,
+      payment details, or financial information from any other service.
+    </p>
     <form class="form" action="/auth/sign-up" method="POST">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" required />
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" required />
-      <label for="confirmPassword">Confirm Password:</label>
+      <label for="username">CodeBlueprint username:</label>
+      <input type="text" name="username" id="username" autocomplete="username" required />
+      <label for="password">New CodeBlueprint password:</label>
+      <input type="password" name="password" id="password" autocomplete="new-password" required />
+      <label for="confirmPassword">Confirm CodeBlueprint password:</label>
       <input 
         type="password"
         name="confirmPassword"
         id="confirmPassword"
+        autocomplete="new-password"
         required 
       />
       <button type="submit">Sign up</button>

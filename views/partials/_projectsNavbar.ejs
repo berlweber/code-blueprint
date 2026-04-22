@@ -1,13 +1,14 @@
 <div id="projectsnav">
     <h3>My Projects</h3>
+    <% const visibleProjects = typeof projects !== 'undefined' ? projects : []; %>
     <% if (user) {%>
     <a href="/projects/new" id="newproj" class="btn">Start A New Project</a>
     
-        <% projects.forEach(project => { %>
+        <% visibleProjects.forEach(project => { %>
             <a href="/projects/<%= project._id %>" class="btn"><%= project.name %> </a>
         <% }) %>
     
     <% } else { %>
-        <p>Your Porjects appear here</p>
+        <p>Your projects appear here after you sign in.</p>
     <% } %>
 </div>

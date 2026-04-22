@@ -12,12 +12,16 @@
     <main>
         <%- include('../partials/_docsNavbar.ejs') %>
     
-        <h1>Sign in</h1>
+        <h1>Sign in to CodeBlueprint</h1>
+        <p class="security-note">
+            Use only your CodeBlueprint username and password. This app will never ask for
+            banking, payment, or third-party account credentials.
+        </p>
         <form class="form" action="/auth/sign-in" method="POST">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" required />
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" required />
+            <label for="username">CodeBlueprint username:</label>
+            <input type="text" name="username" id="username" autocomplete="username" required />
+            <label for="password">CodeBlueprint password:</label>
+            <input type="password" name="password" id="password" autocomplete="current-password" required />
             <button type="submit">Sign in</button>
         </form>
     </main>
